@@ -6,6 +6,7 @@ var game = {
 	guesses: [];
 	guessCount: 0
 	guessWord: [],
+	winCount,
 	key: null,
 
 	begin: function(){
@@ -33,7 +34,9 @@ var game = {
 
 var interface = {
 	keyup: function(event){
-		game.key = event.key;
+		if(event.keyCode < 65 || event.keyCode > 90)
+			return 0;
+		game.key = event.key.toLowerCase();
 		game.update();
 	}
 }
